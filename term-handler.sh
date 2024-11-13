@@ -8,10 +8,16 @@ handle_sigint() {
 }
 
 # Function to handle SIGTERM signal
+SIGTERM_REQUESTED=0
 handle_sigterm() {
-    echo "Received SIGTERM signal"
-    sleep 5
-    exit 0
+    if [ $SIGTERM_REQUESTED -eq 0 ]; then
+        echo "Send SIGTERM again to terminate"
+        SIGTERM_REQUESTED=1
+    else
+        echo "SIGTERM received, exiting now"
+        sleep 5
+        exit 0
+    fi
 }
 
 # Trap SIGINT and SIGTERM signals and call the corresponding handler functions
