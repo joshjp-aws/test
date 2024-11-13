@@ -3,12 +3,14 @@
 # Function to handle SIGINT signal
 handle_sigint() {
     echo "Received SIGINT signal"
+    sleep 5
     exit 0
 }
 
 # Function to handle SIGTERM signal
 handle_sigterm() {
     echo "Received SIGTERM signal"
+    sleep 5
     exit 0
 }
 
