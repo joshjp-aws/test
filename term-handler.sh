@@ -4,6 +4,7 @@
 handle_termination() {
     local signal=$1
     echo "Process received signal: $signal"
+    sleep 5
     exit 0
 }
 
